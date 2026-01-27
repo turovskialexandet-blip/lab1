@@ -1,5 +1,6 @@
 import java.awt.*;
 
+public double hello;
 public class Car {
     public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
