@@ -26,11 +26,13 @@ public class Volvo240 extends Car{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
+        amount = Zero_to_One(amount);
         incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
+        amount = Zero_to_One(amount);
         decrementSpeed(amount);
     }
 }

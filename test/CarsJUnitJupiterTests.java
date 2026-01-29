@@ -65,4 +65,24 @@ public class CarsJUnitJupiterTests {
         System.out.printf("Volvo240s coords after stop: %s.\n", volvo240.coordinates);
 
     }
+
+    @Test
+    public void gas_And_brake(){
+        System.out.println("___\nTests gas & brake:");
+        volvo240.startEngine();
+        volvo240.incrementSpeed(30);
+        System.out.printf("Volvo240s speed before: %s.\n", volvo240.getCurrentSpeed());
+
+        volvo240.gas(0.5);
+        System.out.printf("Volvo240s speed after 1st gas call: %s.\n", volvo240.getCurrentSpeed());
+
+        volvo240.gas(2);
+        System.out.printf("Volvo240s speed after 2nd gas call: %s.\n", volvo240.getCurrentSpeed());
+
+        volvo240.brake(4);
+        System.out.printf("Volvo240s speed after 1st brake call: %s.\n", volvo240.getCurrentSpeed());
+
+        volvo240.brake(0.3);
+        System.out.printf("Volvo240s speed after 2nd brake call: %s.\n", volvo240.getCurrentSpeed());
+    }
 }

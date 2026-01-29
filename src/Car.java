@@ -21,7 +21,8 @@ public class Car implements Movable {
 
     // getter-function that returns the current speed of the car
     public double getCurrentSpeed(){
-        return currentSpeed;
+        if (currentSpeed <= 0) return currentSpeed = 0;
+        else return Math.min(currentSpeed, enginePower);
     }
 
     // getter-function that returns the color of the car
@@ -79,4 +80,10 @@ public class Car implements Movable {
         }
     }
 
+    public double Zero_to_One(double amount){
+        if (amount <= 0) amount = 0;
+        else amount = Math.min(amount, 1);
+        System.out.printf("Call from Zero_to_One() function, the amount is %s\n", amount);
+        return amount;
+    }
 }
