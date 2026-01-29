@@ -50,16 +50,16 @@ public class Car implements Movable {
     public void move() {
         switch(state){
             case 1:
-                coordinates.y += currentSpeed;
+                coordinates.y += (int) currentSpeed;
                 break;
             case 2:
-                coordinates.x += currentSpeed;
+                coordinates.x += (int) currentSpeed;
                 break;
             case 3:
-                coordinates.y -= currentSpeed;
+                coordinates.y -= (int) currentSpeed;
                 break;
             case 4:
-                coordinates.x -= currentSpeed;
+                coordinates.x -= (int) currentSpeed;
                 break;
         }
     }
