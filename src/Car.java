@@ -6,7 +6,7 @@ public class Car implements Movable {
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model
-    public Point coordinates; // Car coordinates
+    public Point coordinates = new Point(0, 0); // Car coordinates
     private int state = 1;
 
     // getter-function that returns the number of doors a car has
@@ -50,12 +50,16 @@ public class Car implements Movable {
         switch(state){
             case 1:
                 coordinates.y += currentSpeed;
+                break;
             case 2:
                 coordinates.x += currentSpeed;
+                break;
             case 3:
                 coordinates.y -= currentSpeed;
+                break;
             case 4:
                 coordinates.x -= currentSpeed;
+                break;
         }
     }
     public void turnLeft() {
