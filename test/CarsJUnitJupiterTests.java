@@ -21,6 +21,7 @@ public class CarsJUnitJupiterTests {
         System.out.printf("Volvo240 numDoors: %s, Saab95 numDoors: %s.\n", volvo240.getNrDoors(), saab95.getNrDoors());
         System.out.printf("Volvo240 color: %s, Saab95 color: %s.\n", volvo240.getColor(), saab95.getColor());
         System.out.printf("Volvo240 speed: %s, Saab95 speed: %s.\n", volvo240.getCurrentSpeed(), saab95.getCurrentSpeed());
+        System.out.printf("Volvo240 engpow: %s, Saab95 engpow: %s.\n", volvo240.getEnginePower(), saab95.getEnginePower());
     }
 
     @Test
