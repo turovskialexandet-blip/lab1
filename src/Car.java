@@ -87,5 +87,3 @@ public class Car implements Movable {
         return amount;
     }
 }
-
-//test - sonya
