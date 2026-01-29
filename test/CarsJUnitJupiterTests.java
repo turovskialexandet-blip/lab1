@@ -55,9 +55,11 @@ public class CarsJUnitJupiterTests {
         }
         System.out.printf("Volvo240s coords now: %s.\n", volvo240.coordinates);
 
-        volvo240.decrementSpeed(9);
-        volvo240.move();
-        System.out.printf("Volvo240s coords after decrement: %s.\n", volvo240.coordinates);
+        for (int i = 1; i < 3; i++){
+            volvo240.decrementSpeed(i);
+            volvo240.move();
+            System.out.printf("Volvo240s coords after decrement %s: %s.\n", i, volvo240.coordinates);
+        }
 
         volvo240.stopEngine();
         volvo240.move();
