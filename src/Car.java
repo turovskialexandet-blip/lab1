@@ -49,16 +49,16 @@ public class Car implements Movable {
     // potential changes are expected for these methods
     public void move() {
         switch(state){
-            case 1:
+            case 1: //rakt fram
                 coordinates.y += (int) currentSpeed;
                 break;
-            case 2:
+            case 2: //går åt höger
                 coordinates.x += (int) currentSpeed;
                 break;
-            case 3:
+            case 3: //går ner
                 coordinates.y -= (int) currentSpeed;
                 break;
-            case 4:
+            case 4: //går åt vänster
                 coordinates.x -= (int) currentSpeed;
                 break;
         }
