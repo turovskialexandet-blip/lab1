@@ -5,8 +5,8 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarsJUnitJupiterTests {
-    private final Volvo240 volvo240 = new Volvo240();
-    private final Saab95 saab95 = new Saab95();
+    private final Car volvo240 = new Volvo240();
+    private final Car saab95 = new Saab95();
 
     @Test
     public void initTest(){
@@ -19,29 +19,26 @@ public class CarsJUnitJupiterTests {
     @Test
     public void getterTest(){
         // tests getters
-        System.out.println("___\nTests getters:");
-        System.out.printf("Volvo240 numDoors: %s, Saab95 numDoors: %s.\n", volvo240.getNrDoors(), saab95.getNrDoors());
-        System.out.printf("Volvo240 color: %s, Saab95 color: %s.\n", volvo240.getColor(), saab95.getColor());
-        System.out.printf("Volvo240 speed: %s, Saab95 speed: %s.\n", volvo240.getCurrentSpeed(), saab95.getCurrentSpeed());
-        System.out.printf("Volvo240 engpow: %s, Saab95 engpow: %s.\n", volvo240.getEnginePower(), saab95.getEnginePower());
-
         assertEquals(4, volvo240.getNrDoors());
         assertEquals(2, saab95.getNrDoors());
-        assertTrue(volvo240.getEnginePower() > 0);
-        assertTrue(saab95.getEnginePower() > 0);
+        assertEquals(100, volvo240.getEnginePower());
+        assertEquals(125,saab95.getEnginePower());
+        assertEquals(Color.red,saab95.getColor());
+        assertEquals(Color.black,volvo240.getColor());
+        assertFalse(saab95.getCurrentSpeed() >0);
+        assertFalse(volvo240.getCurrentSpeed() >0);
     }
 
     @Test
     public void setterTest(){
         // tests setters
-        System.out.println("___\nTests setters:");
-        System.out.printf("Saab95s color before: %s.\n", saab95.getColor());
+        Color beforeS = saab95.getColor();
         saab95.setColor(Color.magenta);
-        System.out.printf("Saab95s color now: %s.\n", saab95.getColor());
+        assertNotSame(beforeS, saab95.getColor());
 
-        System.out.printf("Volvo240s color before: %s.\n", volvo240.getColor());
+        Color beforeV = volvo240.getColor();
         volvo240.setColor(Color.cyan);
-        System.out.printf("Volvo240s color now: %s.\n", volvo240.getColor());
+        assertNotSame(beforeV, volvo240.getColor());
     }
 
     @Test
@@ -71,11 +68,6 @@ public class CarsJUnitJupiterTests {
         volvo240.stopEngine();
         volvo240.move();
         System.out.printf("Volvo240s coords after stop: %s.\n", volvo240.coordinates);
-
-        Point before = new Point(volvo240.coordinates);
-        volvo240.turnLeft();
-        volvo240.move();
-        assertNotEquals(before, volvo240.coordinates);
 
     }
 
