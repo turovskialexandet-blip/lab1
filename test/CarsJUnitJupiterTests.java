@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CarsJUnitJupiterTests {
     private final Volvo240 volvo240 = new Volvo240();
     private final Saab95 saab95 = new Saab95();
@@ -22,6 +24,11 @@ public class CarsJUnitJupiterTests {
         System.out.printf("Volvo240 color: %s, Saab95 color: %s.\n", volvo240.getColor(), saab95.getColor());
         System.out.printf("Volvo240 speed: %s, Saab95 speed: %s.\n", volvo240.getCurrentSpeed(), saab95.getCurrentSpeed());
         System.out.printf("Volvo240 engpow: %s, Saab95 engpow: %s.\n", volvo240.getEnginePower(), saab95.getEnginePower());
+
+        assertEquals(4, volvo240.getNrDoors());
+        assertEquals(2, saab95.getNrDoors());
+        assertTrue(volvo240.getEnginePower() > 0);
+        assertTrue(saab95.getEnginePower() > 0);
     }
 
     @Test
@@ -65,6 +72,11 @@ public class CarsJUnitJupiterTests {
         volvo240.move();
         System.out.printf("Volvo240s coords after stop: %s.\n", volvo240.coordinates);
 
+        Point before = new Point(volvo240.coordinates);
+        volvo240.turnLeft();
+        volvo240.move();
+        assertNotEquals(before, volvo240.coordinates);
+
     }
 
     @Test
@@ -87,3 +99,5 @@ public class CarsJUnitJupiterTests {
         System.out.printf("Volvo240s speed after 2nd brake call: %s.\n", volvo240.getCurrentSpeed());
     }
 }
+
+
