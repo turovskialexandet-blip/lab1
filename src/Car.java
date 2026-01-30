@@ -64,7 +64,7 @@ public class Car implements Movable {
         }
     }
     public void turnLeft() {
-        if(state < 1){
+        if(state <= 1){
             state = 4;
         }
         else{
@@ -72,7 +72,7 @@ public class Car implements Movable {
         }
     }
     public void turnRight() {
-        if (state > 4){
+        if (state >= 4){
             state = 1;
         }
         else {
@@ -86,4 +86,7 @@ public class Car implements Movable {
         System.out.printf("Call from Zero_to_One() function, the amount is %s\n", amount);
         return amount;
     }
+
+    public void incrementSpeed(double amount) {}
+    public void decrementSpeed(double amount) {}
 }
