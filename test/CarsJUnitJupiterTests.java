@@ -44,36 +44,39 @@ public class CarsJUnitJupiterTests {
     @Test
     public void movement_And_rotationTest(){
         // tests the movement of the cars
-        System.out.println("___\nTests movement:");
         volvo240.startEngine();
-        System.out.printf("Volvo240s speed before: %s.\n", volvo240.getCurrentSpeed());
-        volvo240.incrementSpeed(10);
-        System.out.printf("Volvo240s speed now: %s.\n", volvo240.getCurrentSpeed());
+        assertEquals(0.1, volvo240.getCurrentSpeed());
 
-        System.out.printf("Volvo240s coords before: %s.\n", volvo240.coordinates);
+        volvo240.incrementSpeed(10);
+        double nowV = volvo240.getCurrentSpeed();
+        assertNotSame(0.1, nowV);
+
+
         for (int i = 0; i < 2; i++){
             volvo240.turnRight();
             volvo240.move();
             volvo240.turnLeft();
             volvo240.move();
         }
-        System.out.printf("Volvo240s coords now: %s.\n", volvo240.coordinates);
+        Point cordVnow = new Point(volvo240.coordinates.x, volvo240.coordinates.y);
+        assertNotSame(new Point(0, 0), cordVnow);
 
         for (int i = 1; i < 3; i++){
             volvo240.decrementSpeed(i);
             volvo240.move();
-            System.out.printf("Volvo240s coords after decrement %s: %s.\n", i, volvo240.coordinates);
+            assertNotSame(cordVnow, volvo240.coordinates);
         }
 
         volvo240.stopEngine();
+        assertEquals(0, volvo240.getCurrentSpeed());
+        Point befcord = volvo240.coordinates;
         volvo240.move();
-        System.out.printf("Volvo240s coords after stop: %s.\n", volvo240.coordinates);
+        assertSame(befcord, volvo240.coordinates);
 
     }
 
     @Test
     public void gas_And_brake(){
-        System.out.println("___\nTests gas & brake:");
         volvo240.startEngine();
         volvo240.incrementSpeed(30);
         System.out.printf("Volvo240s speed before: %s.\n", volvo240.getCurrentSpeed());
