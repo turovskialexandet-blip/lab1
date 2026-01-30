@@ -9,6 +9,14 @@ public class Car implements Movable {
     public Point coordinates = new Point(0, 0); // Car coordinates
     private int state = 1;
 
+    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
+        stopEngine();
+    }
+
     // getter-function that returns the number of doors a car has
     public int getNrDoors() {
         return nrDoors;

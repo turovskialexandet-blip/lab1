@@ -94,5 +94,3 @@ public class CarsJUnitJupiterTests {
         System.out.printf("Volvo240s speed after 2nd brake call: %s.\n", volvo240.getCurrentSpeed());
     }
 }
-
-
