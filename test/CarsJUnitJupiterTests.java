@@ -79,16 +79,19 @@ public class CarsJUnitJupiterTests {
     public void gas_And_brake(){
         volvo240.startEngine();
         volvo240.incrementSpeed(30);
-        System.out.printf("Volvo240s speed before: %s.\n", volvo240.getCurrentSpeed());
+        assertTrue(volvo240.getCurrentSpeed()>0.1);
 
+        double beforeVol = volvo240.getCurrentSpeed();
         volvo240.gas(0.5);
-        System.out.printf("Volvo240s speed after 1st gas call: %s.\n", volvo240.getCurrentSpeed());
+        assertTrue(volvo240.getCurrentSpeed() > beforeVol);
 
+        double beforeVol2 = volvo240.getCurrentSpeed();
         volvo240.gas(2);
-        System.out.printf("Volvo240s speed after 2nd gas call: %s.\n", volvo240.getCurrentSpeed());
+        assertTrue(volvo240.getCurrentSpeed() > beforeVol2);
 
+        double beforeVol3 = volvo240.getCurrentSpeed();
         volvo240.brake(4);
-        System.out.printf("Volvo240s speed after 1st brake call: %s.\n", volvo240.getCurrentSpeed());
+        assertTrue(volvo240.getCurrentSpeed() < beforeVol3);
 
         volvo240.brake(0.3);
         System.out.printf("Volvo240s speed after 2nd brake call: %s.\n", volvo240.getCurrentSpeed());
